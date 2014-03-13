@@ -1,0 +1,15 @@
+
+
+<%= simple_form_for @room do |form| %>  <!-- It knows what @room to look at because the form is being rendered in the edit view and the edit view is related to the edit action in the rooms controller -->
+
+<%= form.input :name %>
+<%= form.input :address %>
+<%= form.input :number_of_beds %>
+<%= form.input :price_in_pence %>
+<%= form.input :is_available %>
+
+<%= form.button :submit %>
+
+
+
+<%end%>
