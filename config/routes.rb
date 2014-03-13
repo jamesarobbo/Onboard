@@ -2,6 +2,8 @@ Onboard::Application.routes.draw do
 
   resources :rooms
 
+  resources :users
+
 
 # setting the homepage
 

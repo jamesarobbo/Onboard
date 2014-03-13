@@ -1,8 +1,8 @@
 class Room < ActiveRecord::Base
 
-	#  add relationships between models
+	#  add relationships between models. A room can only belong to one user
 
-	has_many :users
+	belongs_to :user # this means belong to the User model (with capital U)
 
 	# validations
 
