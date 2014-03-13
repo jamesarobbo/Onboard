@@ -69,7 +69,7 @@ gem "omniauth-linkedin"
 
 gem "activeadmin", github: "gregbell/active_admin"
 
-
+gem 'foundation-rails'
 
 
 
