@@ -1,5 +1,12 @@
 class RoomsController < ApplicationController
 
+
+	# i want to make sure that the user is logged in on the new, create, edit, update and destroy.
+	#  so before each one runs, do something to check
+
+	before_action :make_sure_logged_in, only: [:new, :create, :edit, :update, :destroy]
+
+
 	def index
 		# show a list of all the rooms
 
@@ -15,13 +22,16 @@ class RoomsController < ApplicationController
 	
 	def new
 		# add a room form
-		@room = Room.new
+		# @room = Room.new
+		# now want the room that is created to be specific to the user who created it
+
+		@room = current_user.rooms.new 
 
 	end	
 
 	def create
 		# enter the room into the database
-		@room = Room.new(room_params)
+		@room = current_user.rooms.new(room_params) # basically saying cannot create if 
 		if @room.save
 			flash[:success] = "Your room has been added"
 			redirect_to room_path(@room)	
@@ -34,13 +44,15 @@ class RoomsController < ApplicationController
 
 	def edit
 
-		@room = Room.find(params[:id])
+		# @room = Room.find(params[:id])
+		@room = current_user.rooms.find(params[:id])
 
 	end
 
 
 	def update
-		@room = Room.find(params[:id])
+		#@room = Room.find(params[:id])
+		@room = current_user.rooms.find(params[:id])
 
 		if @room.update(room_params)
 			flash[:success] = "Your room as been updated"
@@ -55,7 +67,9 @@ class RoomsController < ApplicationController
 
 	def destroy
 
-		@room = Room.find(params[:id])
+		#@room = Room.find(params[:id])
+		@room = current_user.rooms.find(params[:id])
+
 		@room.destroy
 		flash[:success] = "Your room listing has been deleted"
 		redirect_to root_path

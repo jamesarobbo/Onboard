@@ -28,6 +28,23 @@ class ApplicationController < ActionController::Base
 
   end	
 
+  # this is authorisation. above is authentication
+
+  def make_sure_logged_in
+
+    # if not logged in, redirect to log in page
+
+    if not logged_in?
+      flash[:error] = "You must be logged in to see that page"
+      redirect_to new_session_path
+
+    end
+
+
+
+  end
+
+
 
 
 end

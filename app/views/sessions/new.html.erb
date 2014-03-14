@@ -1,0 +1,9 @@
+<h2>Log in to Onboard</h2>
+
+ <%= simple_form_for :session, url: session_path do |form| %>  <!-- there is no model so we are using a symbol instead :session, 																essentially a placeholder. Then we tell it where exactly to go -->
+ <%= form.input :username %>	
+ <%= form.input :password %>
+
+ <%= form.button :submit, "Log in" %>
+
+ <% end %>
