@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 # add relatioships
 	has_many :rooms
 
+	has_many :orders
+
 # validations
 
 	validates :name, presence: true
@@ -12,8 +14,8 @@ class User < ActiveRecord::Base
 
 # gems
 
-	# this gem is built into rails. turns password field in form into something that's encrypted by working with password_digest	
-	has_secure_password 
+	# this gem is built into rails. turns password field in form into something that's encrypted by working with password_digest
+	has_secure_password
 
 
 end

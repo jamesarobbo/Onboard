@@ -1,4 +1,10 @@
 Onboard::Application.configure do
+# this is the stripe API password (secret)
+Stripe.api_key = "sk_test_RrKqwBKfs6rdshDd2EfKEV2J"
+
+# this is the stripe API username (key)
+STRIPE_KEY = "pk_test_yflETlfVn3yH0btcWZ5hDsfA"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

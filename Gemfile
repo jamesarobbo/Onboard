@@ -71,6 +71,4 @@ gem "activeadmin", github: "gregbell/active_admin"
 
 gem 'foundation-rails'
 
-
-
-
+gem "better_errors"

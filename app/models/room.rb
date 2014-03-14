@@ -4,6 +4,8 @@ class Room < ActiveRecord::Base
 
 	belongs_to :user # this means belong to the User model (with capital U)
 
+	has_many :orders
+
 	# validations
 
 	validates :name, presence: true
