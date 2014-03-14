@@ -5,6 +5,17 @@ Stripe.api_key = "sk_live_lx45W2RR8LXFGVbsfQNtSqNk"
 
 STRIPE_KEY = "pk_live_j7V0OhlGLY1SjByO5rY3XwpQ"
 
+
+ActionMailer::Base.smtp_settings = {
+  :address        => 'smtp.sendgrid.net',
+  :port           => '587',
+  :authentication => :plain,
+  :user_name      => ENV['SENDGRID_USERNAME'],
+  :password       => ENV['SENDGRID_PASSWORD'],
+  :domain         => 'heroku.com',
+  :enable_starttls_auto => true
+}
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
