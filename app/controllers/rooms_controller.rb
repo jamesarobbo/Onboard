@@ -19,22 +19,22 @@ class RoomsController < ApplicationController
 
 		@room = Room.find(params[:id])
 	end
-	
+
 	def new
 		# add a room form
 		# @room = Room.new
 		# now want the room that is created to be specific to the user who created it
 
-		@room = current_user.rooms.new 
+		@room = current_user.rooms.new
 
-	end	
+	end
 
 	def create
 		# enter the room into the database
-		@room = current_user.rooms.new(room_params) # basically saying cannot create if 
+		@room = current_user.rooms.new(room_params) # basically saying cannot create if
 		if @room.save
 			flash[:success] = "Your room has been added"
-			redirect_to room_path(@room)	
+			redirect_to room_path(@room)
 		else
 			render "new"
 		end
@@ -58,8 +58,8 @@ class RoomsController < ApplicationController
 			flash[:success] = "Your room as been updated"
 			redirect_to room_path(@room)
 
-		else	
-			render "edit" 
+		else
+			render "edit"
 		end
 
 	end
@@ -83,8 +83,8 @@ class RoomsController < ApplicationController
 
 
 	# this whitelists our form data
-	def room_params 
-		params.require(:room).permit(:name, :address, :number_of_beds, :price_in_pence, :is_available)
+	def room_params
+		params.require(:room).permit(:name, :address, :number_of_beds, :price_in_pence, :is_available, :image)
 
 	end
 
