@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
 
 # validations
 
-	validates :name, presence: true
-	validates :email, presence: true, uniqueness: true
-	validates :username, presence: true, uniqueness: true
+	validates :name, presence: true, if: -> { self.provider.nil? } # this is a lambda and we're using it to say if we're using a social login don't validate
+	validates :email, presence: true, uniqueness: true, if: -> { self.provider.nil? }
+	validates :username, presence: true, uniqueness: true, if: -> { self.provider.nil? }
 
 
 # gems

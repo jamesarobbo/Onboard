@@ -1,5 +1,9 @@
 Onboard::Application.routes.draw do
 
+  # have to specify the URL for the omniauth login, cannot use resources
+
+  get "auth/:provider/callback" => "social_logins#create"
+
   resources :rooms do
   # because orders are placed on rooms, orders is nested however only the new and create as they are specific to that room
     resources :orders, only: [:new, :create]
